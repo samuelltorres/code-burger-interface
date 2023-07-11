@@ -1,11 +1,15 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
 import LoginImg from '../../assets/login-img.svg'
 import Logo from '../../assets/logo.svg'
+import Button from '../../components/Button'
+import { useUser } from '../../hooks/UserContext'
+import api from '../../services/api'
 import {
   Container,
   LoginImage,
@@ -13,11 +17,11 @@ import {
   Label,
   Input,
   ErrorMessage,
-  Button,
   SignInLink,
 } from './styles'
 
 function Login() {
+  const { putUserData } = useUser()
   const schema = Yup.object().shape({
     email: Yup.string()
       .email('Digite um email válido')
@@ -35,7 +39,21 @@ function Login() {
     resolver: yupResolver(schema),
   })
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = async clientData => {
+    const { data } = await toast.promise(
+      api.post('sessions', {
+        email: clientData.email,
+        password: clientData.password,
+      }),
+      {
+        pending: 'Verificando seus dados',
+        success: 'Seja bem-vindo(a)! 👌',
+        error: 'Verifique seu e-mail e senha 🤯',
+      },
+    )
+
+    putUserData(data)
+  }
 
   return (
     <Container>
@@ -65,7 +83,9 @@ function Login() {
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
           <div>
-            <Button type="submit">Sign In</Button>
+            <Button type="submit" style={{ marginTop: 39, marginBottom: 27 }}>
+              Sign In
+            </Button>
           </div>
         </form>
         <SignInLink>
