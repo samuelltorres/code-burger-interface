@@ -18,7 +18,7 @@ import {
   Label,
   Input,
   ErrorMessage,
-  SignInLink,
+  SignInLink
 } from './styles'
 
 export function Login() {
@@ -30,28 +30,28 @@ export function Login() {
       .required('O e-mail é obrigatório'),
     password: Yup.string()
       .required('A senha é obrigatória')
-      .min(6, 'A senha deve ter pelo menos 6 digitos'),
+      .min(6, 'A senha deve ter pelo menos 6 digitos')
   })
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   })
 
   const onSubmit = async clientData => {
     const { data } = await toast.promise(
       api.post('sessions', {
         email: clientData.email,
-        password: clientData.password,
+        password: clientData.password
       }),
       {
         pending: 'Verificando seus dados',
         success: 'Seja bem-vindo(a)! 👌',
-        error: 'Verifique seu e-mail e senha 🤯',
-      },
+        error: 'Verifique seu e-mail e senha 🤯'
+      }
     )
 
     putUserData(data)

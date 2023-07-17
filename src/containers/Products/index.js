@@ -9,7 +9,7 @@ import {
   ProductsImg,
   CategoryButton,
   CategoriesMenu,
-  ProductsContainer,
+  ProductsContainer
 } from './styles'
 
 export function Products() {
@@ -47,7 +47,7 @@ export function Products() {
       setFilteredProducts(products)
     } else {
       const newFilteredProducts = products.filter(
-        product => product.category_id === activeCategories,
+        product => product.category_id === activeCategories
       )
       setFilteredProducts(newFilteredProducts)
     }

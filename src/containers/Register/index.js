@@ -17,7 +17,7 @@ import {
   Label,
   Input,
   ErrorMessage,
-  SignInLink,
+  SignInLink
 } from './styles'
 
 export function Register() {
@@ -31,15 +31,15 @@ export function Register() {
       .min(6, 'A senha deve ter pelo menos 6 digitos.'),
     confirmPassword: Yup.string()
       .required('A senha é obrigatória.')
-      .oneOf([Yup.ref('password')], 'As senhas devem ser iguais'),
+      .oneOf([Yup.ref('password')], 'As senhas devem ser iguais')
   })
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(schema)
   })
 
   const onSubmit = async clientData => {
@@ -49,9 +49,9 @@ export function Register() {
         {
           name: clientData.name,
           email: clientData.email,
-          password: clientData.password,
+          password: clientData.password
         },
-        { validateStatus: () => true },
+        { validateStatus: () => true }
       )
       if (status === 201 || status === 200) {
         toast.success('Usuário cadastrado com sucesso!')

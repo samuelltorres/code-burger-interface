@@ -20,7 +20,13 @@
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "semi": false,
+      "arrowParens": "avoid",
+      "trailingComma": "none",
+      "endOfLine": "auto"
+    }],
     // "react/prop-types": 0,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
