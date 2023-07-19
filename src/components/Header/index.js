@@ -1,7 +1,9 @@
 import React from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import Cart from '../../assets/cart.svg'
 import Person from '../../assets/person.svg'
+import { useUser } from '../../hooks/UserContext'
 import {
   Container,
   ContainerLeft,
@@ -13,16 +15,36 @@ import {
 } from './styles'
 
 export function Header() {
+  const { logout } = useUser()
+  const navigate = useNavigate()
+  const { pathname } = useLocation()
+
+  const logoutUser = () => {
+    logout()
+    navigate('/login')
+  }
+
   return (
     <Container>
       <ContainerLeft>
-        <PageLink>Home</PageLink>
-        <PageLink>Ver produtos</PageLink>
+        <PageLink onClick={() => navigate('/')} isActive={pathname === '/'}>
+          Home
+        </PageLink>
+        <PageLink
+          onClick={() => navigate('/produtos')}
+          isActive={pathname.includes('produtos')}
+        >
+          Ver produtos
+        </PageLink>
       </ContainerLeft>
 
       <ContainerRight>
         <PageLink>
-          <img src={Cart} alt="logo-carrinho" />
+          <img
+            src={Cart}
+            alt="logo-carrinho"
+            onClick={() => navigate('/carrinho')}
+          />
         </PageLink>
 
         <Line />
@@ -33,7 +55,7 @@ export function Header() {
 
         <ContainerText>
           <p>Olá, Samuell</p>
-          <PageLinkExit>Sair</PageLinkExit>
+          <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
         </ContainerText>
       </ContainerRight>
     </Container>
