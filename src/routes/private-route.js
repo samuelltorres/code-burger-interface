@@ -5,20 +5,27 @@ import PropTypes from 'prop-types'
 
 import { Header } from '../components'
 
-function PrivateRoute({ component, ...rest }) {
+function PrivateRoute({ component, isAdmin, ...rest }) {
   const user = localStorage.getItem('codeburger:userData')
 
-  return !user ? (
-    <Navigate to="/login" />
-  ) : (
+  if (!user) {
+    return <Navigate to="/login" />
+  }
+
+  if (isAdmin && !JSON.parse(user).admin) {
+    return <Navigate to="/" />
+  }
+
+  return (
     <>
-      {' '}
-      <Header /> <Outlet />
+      {!isAdmin && <Header />}
+      <Outlet {...rest} />
     </>
   )
 }
 export default PrivateRoute
 
 PrivateRoute.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
+  component: PropTypes.oneOfType([PropTypes.func, PropTypes.element]),
+  isAdmin: PropTypes.bool
 }
