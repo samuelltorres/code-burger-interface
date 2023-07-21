@@ -5,13 +5,14 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background: #3c3c3c;
   box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.15);
-  width: 300px;
+  width: 264px;
+  min-height: 100vh;
   top: 0;
   left: 0;
 
   hr {
     margin: 50px 15px;
-    background: var(--gray-gray-5, #e9ecef);
+    background: #e9ecef;
   }
 `
 export const ItemContainer = styled.div`
