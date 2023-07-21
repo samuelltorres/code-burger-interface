@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography'
 import PropTypes from 'prop-types'
 
 import api from '../../../services/api'
+import formatCurrency from '../../../utils/formatCurrency'
 import status from './order-status'
 import { ProductsImg, ReactSelectStyle } from './styles'
 
@@ -82,25 +83,35 @@ export function Row({ row, setOrders, orders }) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Quantidade</TableCell>
+                    <TableCell></TableCell>
                     <TableCell>Produto</TableCell>
                     <TableCell>Categoria</TableCell>
-                    <TableCell></TableCell>
+                    <TableCell align="center">Quantidade</TableCell>
+                    <TableCell align="center">Preço</TableCell>
+                    <TableCell align="center"> Total</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {row.products.map(productRow => (
                     <TableRow key={productRow.id}>
-                      <TableCell component="th" scope="row">
-                        {productRow.quantity}
-                      </TableCell>
-                      <TableCell>{productRow.name}</TableCell>
-                      <TableCell>{productRow.category}</TableCell>
                       <TableCell>
                         <ProductsImg
                           src={productRow.url}
                           alt="imagem-do-produto"
                         />
+                      </TableCell>
+                      <TableCell component="th" scope="row">
+                        {productRow.name}
+                      </TableCell>
+                      <TableCell>{productRow.category}</TableCell>
+                      <TableCell align="center">
+                        {productRow.quantity}
+                      </TableCell>
+                      <TableCell align="center">
+                        {formatCurrency(productRow.price)}
+                      </TableCell>
+                      <TableCell align="center">
+                        {formatCurrency(productRow.price * productRow.quantity)}
                       </TableCell>
                     </TableRow>
                   ))}
