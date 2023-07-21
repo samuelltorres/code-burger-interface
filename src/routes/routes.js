@@ -19,6 +19,7 @@ function MyRoutes() {
 
         <Route element={<PrivateRoute isAdmin />}>
           <Route element={<Admin />} path="/pedidos" exact />
+          <Route element={<Admin />} path="/listar-produtos" exact />
         </Route>
       </Routes>
     </Router>
