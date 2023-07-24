@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useForm, Controller } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import ReactSelect from 'react-select'
+import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import CloudDoneIcon from '@mui/icons-material/CloudDone'
@@ -12,6 +14,7 @@ import api from '../../../services/api'
 import { Container, Label, Input, ButtonStyles, LabelUpload } from './styles'
 
 function NewProduct() {
+  const navigate = useNavigate()
   const [fileName, setFileName] = useState(null)
   const [categories, setCategories] = useState([])
 
@@ -24,7 +27,7 @@ function NewProduct() {
         return value?.length > 0
       })
       .test('fileSize', 'Carregue arquivos de até 2mb', value => {
-        return value[0]?.size <= 20000
+        return value[0]?.size <= 2100000
       })
       .test('type', 'Carregue apenas arquivos JPEG', value => {
         return value[0]?.type === 'image/jpeg' || value[0]?.type === 'image/png'
@@ -39,7 +42,25 @@ function NewProduct() {
   } = useForm({
     resolver: yupResolver(schema)
   })
-  const onSubmit = data => console.log(data)
+
+  const onSubmit = async data => {
+    const productDataFormData = new FormData()
+
+    productDataFormData.append('name', data.name)
+    productDataFormData.append('price', data.price)
+    productDataFormData.append('category_id', data.category.id)
+    productDataFormData.append('file', data.file[0])
+
+    await toast.promise(api.post('/products', productDataFormData), {
+      pending: 'Criando novo produto...',
+      success: 'Produto criado com sucesso!',
+      error: 'Falha ao criar o produto, tente novamente.'
+    })
+
+    setTimeout(() => {
+      navigate('/listar-produtos')
+    }, 1000)
+  }
 
   useEffect(() => {
     async function loadCategories() {
