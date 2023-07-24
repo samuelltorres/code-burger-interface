@@ -13,6 +13,14 @@ export const Container = styled.div`
     border-radius: 10px;
     background: #565656;
     padding: 30px;
+
+    input[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+    input[type='number'] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+    }
   }
 `
 
