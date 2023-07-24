@@ -14,6 +14,10 @@ export const Container = styled.div`
     background: #565656;
     padding: 30px;
 
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
     input[type='number']::-webkit-inner-spin-button {
       -webkit-appearance: none;
     }
@@ -40,7 +44,6 @@ export const Input = styled.input`
   border-radius: 8px;
   box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
 
-  margin-bottom: 22px;
   padding: 20px;
 
   font-size: 16px;
@@ -64,7 +67,6 @@ export const LabelUpload = styled.label`
   border-radius: 8px;
 
   padding: 10px;
-  margin-bottom: 22px;
 
   color: #fff;
 
