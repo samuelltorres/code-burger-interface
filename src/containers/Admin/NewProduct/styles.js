@@ -24,6 +24,7 @@ export const Label = styled.p`
 
 export const Input = styled.input`
   width: 100%;
+  min-width: 280px;
   height: 50px;
 
   background: #fff;
@@ -32,14 +33,35 @@ export const Input = styled.input`
   box-shadow: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
 
   margin-bottom: 22px;
+  padding: 20px;
 
-  /* color: #333;
   font-size: 16px;
-  font-weight: 400; */
 `
 
 export const ButtonStyles = styled(Button)`
   width: 100%;
   height: 48px;
-  margin-top: 120px;
+  margin-top: 100px;
+`
+
+export const LabelUpload = styled.label`
+  cursor: pointer;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px dashed #fff;
+  border-radius: 8px;
+
+  padding: 10px;
+  margin-bottom: 22px;
+
+  color: #fff;
+
+  input {
+    opacity: 0;
+    width: 1px;
+  }
 `
