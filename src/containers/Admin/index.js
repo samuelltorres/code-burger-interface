@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 
 import { SideMenuAdmin } from '../../components'
 import paths from '../../constants/paths'
+import EditProduct from './EditProduct'
 import ListProducts from './ListProducts'
 import NewProduct from './NewProduct'
 import Orders from './Orders'
@@ -19,6 +20,7 @@ export function Admin() {
         {locationPathname === paths.ListOrders && <Orders />}
         {locationPathname === paths.ListProducts && <ListProducts />}
         {locationPathname === paths.NewProduct && <NewProduct />}
+        {locationPathname === paths.EditProduct && <EditProduct />}
       </ContainerItems>
     </Container>
   )

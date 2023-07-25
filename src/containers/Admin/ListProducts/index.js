@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import CancelIcon from '@mui/icons-material/Cancel'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
@@ -10,12 +11,14 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 
+import paths from '../../../constants/paths'
 import api from '../../../services/api'
 import formatCurrency from '../../../utils/formatCurrency'
 import { Container, Img, EditIconStyles } from './styles'
 
 function ListProducts() {
   const [products, setProducts] = useState()
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function loadOrders() {
@@ -33,6 +36,10 @@ function ListProducts() {
       return <CheckCircleIcon color="success" />
     }
     return <CancelIcon color="error" />
+  }
+
+  function editProduct(product) {
+    navigate(paths.EditProduct, { state: { product } })
   }
 
   return (
@@ -66,7 +73,7 @@ function ListProducts() {
                   <TableCell>{formatCurrency(product.price)}</TableCell>
                   <TableCell align="center">{isOffer(product.offer)}</TableCell>
                   <TableCell align="center">
-                    <EditIconStyles />
+                    <EditIconStyles onClick={() => editProduct(product)} />
                   </TableCell>
                 </TableRow>
               ))}

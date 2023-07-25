@@ -22,6 +22,7 @@ function MyRoutes() {
           <Route element={<Admin />} path={paths.ListOrders} exact />
           <Route element={<Admin />} path={paths.ListProducts} exact />
           <Route element={<Admin />} path={paths.NewProduct} exact />
+          <Route element={<Admin />} path={paths.EditProduct} exact />
         </Route>
       </Routes>
     </Router>
