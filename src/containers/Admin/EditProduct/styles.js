@@ -75,3 +75,18 @@ export const LabelUpload = styled.label`
     width: 1px;
   }
 `
+export const ContainerInput = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  input {
+    width: 20px;
+    height: 23px;
+    cursor: pointer;
+  }
+`
+export const LabelOffer = styled.p`
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 3px;
+`
