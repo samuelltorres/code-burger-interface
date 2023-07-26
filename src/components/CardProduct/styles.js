@@ -18,7 +18,8 @@ export const Container = styled.div`
 `
 
 export const Image = styled.img`
-  width: 150px;
+  width: 180px;
+  height: 170px;
   border-radius: 20px;
 `
 
@@ -28,6 +29,7 @@ export const ProductName = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  width: 182px;
 `
 
 export const ProductPrice = styled.p`
