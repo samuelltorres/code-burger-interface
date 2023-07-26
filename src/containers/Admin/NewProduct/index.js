@@ -26,8 +26,8 @@ function NewProduct() {
       .test('required', 'Carregue um arquivo', value => {
         return value?.length > 0
       })
-      .test('fileSize', 'Carregue arquivos de até 2mb', value => {
-        return value[0]?.size <= 2100000
+      .test('fileSize', 'Carregue arquivos de até 10mb', value => {
+        return value[0]?.size <= 10100000
       })
       .test('type', 'Carregue apenas arquivos JPEG', value => {
         return value[0]?.type === 'image/jpeg' || value[0]?.type === 'image/png'
