@@ -1,7 +1,3 @@
-<h1 align="center">
-    <img width="250px" src="./src/assets/logo-Codeburger.png" alt="logo-codeburger">
-</h1>
-
 > ## Projeto
 <p>CodeBurger é um sistema para lanchonete, que permite aos usuários se cadastrar, fazer pedidos e adicionar ao carrinho.</p>
 <p>Tambem é possivel fazer login como adiministrador e ver os pedidos que foram realizados, ver a lista de produtos, adicionar e editar novos produtos.</p>
