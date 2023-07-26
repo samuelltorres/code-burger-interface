@@ -69,7 +69,6 @@ export const Input = styled.input`
 
 export const SignInLink = styled.p`
   color: #fff;
-  font-family: Roboto;
   font-size: 14px;
   font-style: normal;
   font-weight: 300;
