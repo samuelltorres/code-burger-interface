@@ -3,6 +3,17 @@
 <p>Tambem é possivel fazer login como adiministrador e ver os pedidos que foram realizados, ver a lista de produtos, adicionar e editar novos produtos.</p>
 <p>Todos os usuários cadastrados, os produtos e os pedidos realizados, ficam gravados no banco de dados. Para ver a api <a href="https://github.com/samuelltorres/code-burger-api">clique aqui</a>.</p>
 
+<br>
+<br>
+
+<p align="center">
+  <a href="https://codeburgerinterface.vercel.app">Clique aqui para testar</a>
+  <br>
+  <sub>  O projeto pode não funcionar corretamente em telas menores pois ainda não está responsivo.  </sub>
+</p>
+
+<br>
+<br>
 
 > ## Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -22,11 +33,15 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 * [Prettier](https://prettier.io/)
 * [ESLint](https://eslint.org/)
 
+<br>
+
 >## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+<br>
 
 ### Rodando a aplicação
 
@@ -47,6 +62,6 @@ $ yarn start
 
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000> 
 
-#A página será recarregada se você fizer edições. Você também verá quaisquer erros no console.
+# A página será recarregada se você fizer edições. Você também verá quaisquer erros no console.
 ```
 ---
