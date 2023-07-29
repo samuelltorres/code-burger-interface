@@ -76,6 +76,7 @@ export const SignInLink = styled.p`
 
   a {
     cursor: pointer;
-    text-decoration-line: underline;
+    text-decoration-line: none;
+    font-weight: bold;
   }
 `

@@ -69,7 +69,7 @@ function ListProducts() {
                   <TableCell component="th" scope="row">
                     {product.name}
                   </TableCell>
-                  <TableCell>{product.category.name}</TableCell>
+                  <TableCell>{product.category}</TableCell>
                   <TableCell>{formatCurrency(product.price)}</TableCell>
                   <TableCell align="center">{isOffer(product.offer)}</TableCell>
                   <TableCell align="center">

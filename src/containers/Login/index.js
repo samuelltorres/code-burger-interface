@@ -93,14 +93,14 @@ export function Login() {
 
           <div>
             <Button type="submit" style={{ marginTop: 39, marginBottom: 27 }}>
-              Sign In
+              Entrar
             </Button>
           </div>
         </form>
         <SignInLink>
           Não possui conta?{' '}
           <Link to="/cadastro" style={{ color: '#9758a6' }}>
-            Sign Up
+            Cadastrar
           </Link>
         </SignInLink>
       </ContainerItens>

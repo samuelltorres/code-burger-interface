@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -20,6 +20,8 @@ import {
 } from './styles'
 
 export function Register() {
+  const navigate = useNavigate()
+
   const schema = Yup.object().shape({
     name: Yup.string().required('O seu nome é obrigatório.'),
     email: Yup.string()
@@ -62,6 +64,10 @@ export function Register() {
     } catch (err) {
       toast.error('Falha no sistema! Tente novamente.')
     }
+
+    setTimeout(() => {
+      navigate('/login')
+    }, 500)
   }
 
   return (
@@ -109,14 +115,14 @@ export function Register() {
 
           <div>
             <Button type="submit" style={{ marginTop: 28, marginBottom: 28 }}>
-              Sign Up
+              Registrar
             </Button>
           </div>
         </form>
         <SignInLink>
           Já possui conta?{' '}
           <Link to="/login" style={{ color: '#9758a6' }}>
-            Sign In
+            Entrar
           </Link>
         </SignInLink>
       </ContainerItens>

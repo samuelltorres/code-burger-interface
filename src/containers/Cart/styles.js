@@ -7,8 +7,6 @@ export const Container = styled.div`
 
 export const CartImg = styled.img`
   width: 100%;
-  width: 190px;
-  height: 180px;
 `
 
 export const Wrapper = styled.div`

@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-import LogoutIcon from '@mui/icons-material/Logout'
+import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import PropTypes from 'prop-types'
 
 import { useUser } from '../../hooks/UserContext'
@@ -20,8 +22,14 @@ export function SideMenuAdmin({ path }) {
         </ItemContainer>
       ))}
       <hr></hr>
+
+      <ItemContainer style={{ position: 'fixed', bottom: '65px' }}>
+        <HomeOutlinedIcon className="icon" />
+        <ListLink to="/">Home</ListLink>
+      </ItemContainer>
+
       <ItemContainer style={{ position: 'fixed', bottom: '30px' }}>
-        <LogoutIcon className="icon" />
+        <ExitToAppOutlinedIcon className="icon" />
         <ListLink to="/login" onClick={logout}>
           Sair
         </ListLink>

@@ -30,6 +30,7 @@ export const Body = styled.div`
   img {
     border-radius: 20px;
     width: 135px;
+    margin-right: 30px;
   }
 
   p {
