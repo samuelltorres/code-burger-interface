@@ -72,16 +72,15 @@ export function Orders() {
   return (
     <Container>
       <Menu>
-        {status &&
-          status.map(status => (
-            <LinkMenu
-              key={status.id}
-              onClick={() => handleStatus(status)}
-              isActiveStatus={activeStatus === status.id}
-            >
-              {status.label}
-            </LinkMenu>
-          ))}
+        {status?.map(status => (
+          <LinkMenu
+            key={status.id}
+            onClick={() => handleStatus(status)}
+            isActiveStatus={activeStatus === status.id}
+          >
+            {status.label}
+          </LinkMenu>
+        ))}
       </Menu>
 
       <TableContainer component={Paper}>

@@ -17,15 +17,15 @@ import formatCurrency from '../../../utils/formatCurrency'
 import { Container, Img, EditIconStyles } from './styles'
 
 function ListProducts() {
-  const [products, setProducts] = useState()
+  const [products, setProducts] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
     async function loadOrders() {
-      const { data } = await api.get('products')
+      const data = await api.get('products')
 
-      setProducts(data)
-      console.log(data)
+      setProducts(data.data)
+      console.log(data.data)
     }
 
     loadOrders()
@@ -57,26 +57,25 @@ function ListProducts() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products &&
-              products.map(product => (
-                <TableRow
-                  key={product.id}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell>
-                    <Img src={product.url} alt="imagem-produto" />
-                  </TableCell>
-                  <TableCell component="th" scope="row">
-                    {product.name}
-                  </TableCell>
-                  <TableCell>{product.category}</TableCell>
-                  <TableCell>{formatCurrency(product.price)}</TableCell>
-                  <TableCell align="center">{isOffer(product.offer)}</TableCell>
-                  <TableCell align="center">
-                    <EditIconStyles onClick={() => editProduct(product)} />
-                  </TableCell>
-                </TableRow>
-              ))}
+            {products?.map(product => (
+              <TableRow
+                key={product.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell>
+                  <Img src={product.url} alt="imagem-produto" />
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {product.name}
+                </TableCell>
+                <TableCell>{product.category.name}</TableCell>
+                <TableCell>{formatCurrency(product.price)}</TableCell>
+                <TableCell align="center">{isOffer(product.offer)}</TableCell>
+                <TableCell align="center">
+                  <EditIconStyles onClick={() => editProduct(product)} />
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>

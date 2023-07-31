@@ -5,7 +5,7 @@ export const Container = styled.div`
   justify-content: flex-start;
 
   min-height: 100vh;
-  width: 100vw;
+  width: calc(100vw- 1px);
   background-color: #efefef;
 `
 export const ContainerItems = styled.div`
