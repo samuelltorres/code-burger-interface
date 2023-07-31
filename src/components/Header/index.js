@@ -1,6 +1,8 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
+import PropTypes from 'prop-types'
+
 import Cart from '../../assets/cart.svg'
 import Person from '../../assets/person.svg'
 import { useUser } from '../../hooks/UserContext'
@@ -19,9 +21,15 @@ export function Header() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
 
+  console.log(userData.admin)
+
   const logoutUser = () => {
     logout()
     navigate('/login')
+  }
+
+  const adminPanel = () => {
+    navigate('/pedidos')
   }
 
   return (
@@ -55,7 +63,12 @@ export function Header() {
 
         <ContainerText>
           <p>Olá, {userData.name}</p>
-          <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
+          <div>
+            {userData.admin && (
+              <PageLinkExit onClick={adminPanel}>Admin</PageLinkExit>
+            )}
+            <PageLinkExit onClick={logoutUser}>Sair</PageLinkExit>
+          </div>
         </ContainerText>
       </ContainerRight>
     </Container>

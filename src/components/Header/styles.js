@@ -45,6 +45,7 @@ export const ContainerText = styled.div`
     font-size: 14px;
     font-weight: 300;
   }
+
   div {
     display: flex;
     gap: 10px;
