@@ -1,8 +1,6 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-import PropTypes from 'prop-types'
-
 import Cart from '../../assets/cart.svg'
 import Person from '../../assets/person.svg'
 import { useUser } from '../../hooks/UserContext'
